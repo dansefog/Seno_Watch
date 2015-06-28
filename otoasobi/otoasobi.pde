@@ -166,8 +166,14 @@ class Counter {
     if(bmflag != mflag){mcount = 0; bmflag = mflag;}
     mcount += myCount.i / (60*frameRate);
     if(mcount >= 1){
-      mcount -= 1;
-      voice(1);
+      if(myCount.i >= 20){
+        mcount -= 1;
+        voice(1);
+      }
+      else{
+        mcount -= 1;
+        Kvoice(int(random(4)));
+      }
     }
    }
   }
